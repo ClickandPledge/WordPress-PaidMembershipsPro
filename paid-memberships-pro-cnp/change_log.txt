@@ -1,0 +1,5 @@
+-----------------------------------------------------------------------------
+Version 1.0.beta    
+- Added ability to specify basic Click & Pledge Settings
+- Added ability to specify mode (Production or Test) on settings page
+- Added ability to specify Email settings for Initial Payment, Trial Payment, Recurring Payment

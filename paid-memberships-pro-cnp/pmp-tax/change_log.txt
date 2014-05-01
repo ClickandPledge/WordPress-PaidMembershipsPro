@@ -1,0 +1,3 @@
+-----------------------------------------------------------------------------
+Version 1.0.beta    
+- Added ability to specify tax settings as "CountryCode-StateCode-TaxRate"
