@@ -144,6 +144,9 @@
 				}
 				*/
 			}
+			//echo '<pre>';
+			//print_r($order);
+			//die('ffffffffffff');
 			//charge first payment
 			$result = $this->charge($order);
 			if( $result )
@@ -157,7 +160,7 @@
 						$order->ProfileStartDate = date("Y-m-d", strtotime("+ " . $order->BillingFrequency . " " . $order->BillingPeriod)) . "T0:0:0";						
 						
 						$this->VaultGUID = $result['VaultGUID']; //1st Payment VaultGUID
-						$this->TransactionNumber = $result['TransactionNumber']; //1st Payment Transaction Nu,ber
+						$this->TransactionNumber = $result['TransactionNumber']; //1st Payment Transaction Number
 						$trialauth = $this->authorize($order, 'trial');
 						if( $trialauth )
 						{
@@ -276,14 +279,20 @@
 				$mode = "Test";	
 			
 			$xml = $this->getPaymentXML( $order, $case );
-			/*
-			if($case == 'authorize') {
-				echo $xml;
-				die('auth');
-			}
-			*/
+			
+			//if($case == 'authorize') {
+				//echo $xml;
+				//die('auth');
+			//}
+			
 			$response = $this->sendPayment( $xml );
 			
+			if($response->faultstring == 'Could not connect to host')
+			{
+				$order->error = $response->faultstring.'. Please try after some time.';
+				$order->shorterror = $response->faultstring;
+				return false;
+			}
 			$ResultCode = $response->OperationResult->ResultCode;
 			$transation_number = $response->OperationResult->TransactionNumber;
 			$VaultGUID = $response->OperationResult->VaultGUID;
@@ -430,11 +439,9 @@
 	
 	public function getPaymentXML( $orderplaced, $case = '' ) 
 	{
-		/*
-		echo '<pre>';
-		print_r($orderplaced);
-		die('getxml');			
-		*/
+		
+				
+		
 		$dom = new DOMDocument('1.0', 'UTF-8');
 		$root = $dom->createElement('CnPAPI', '');
 		$root->setAttribute("xmlns","urn:APISchema.xsd");
@@ -457,7 +464,7 @@
 
 		$applicationversion=$dom->createElement('Version','1.000.000.000.20140424');  //2.000.000.000.20130103 Version-Minor change-Bug Fix-Internal Release Number -Release Date
 		$applicationversion=$application->appendChild($applicationversion);
-
+	
 		$request = $dom->createElement('Request', '');
 		$request = $engine->appendChild($request);
 
@@ -481,7 +488,7 @@
 		
 		$accountid=$dom->createElement('AccountID',pmpro_getOption("cnp_AccountID") );
 		$accountid=$authentication->appendChild($accountid);
-				 
+		 
 		$order=$dom->createElement('Order','');
 		$order=$request->appendChild($order);
 		
@@ -509,7 +516,7 @@
 		$billfirst_name=$billinginfo->appendChild($billfirst_name);
 		}
 		
-		
+			
 		
 		if($orderplaced->LastName) {	
 		$billlast_name=$dom->createElement('BillingLastName',$this->safeString($orderplaced->LastName,50));
@@ -557,7 +564,7 @@
 		$billing_zip=$dom->createElement('BillingPostalCode',$this->safeString( $orderplaced->billing->zip,20 ));
 		$billing_zip=$billingaddress->appendChild($billing_zip);
 		}
-
+	
 		if(!empty($orderplaced->billing->country)) {
 		$billing_country_id = '';
 		if(ini_get('allow_url_fopen')) //To check if fopen is "ON"

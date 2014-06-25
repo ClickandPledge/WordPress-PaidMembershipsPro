@@ -1,4 +1,10 @@
 -----------------------------------------------------------------------------
+Version 1.0
+- Fixed UI issues
+- Compatible with WordPress 3.9.1 and PaidMemberShipsPro 1.7.11
+- Last Update:June 25, 2014
+
+-----------------------------------------------------------------------------
 Version 1.0.beta    
 - Added ability to specify basic Click & Pledge Settings
 - Added ability to specify mode (Production or Test) on settings page

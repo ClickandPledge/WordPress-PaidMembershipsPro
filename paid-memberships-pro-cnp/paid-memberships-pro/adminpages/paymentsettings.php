@@ -971,7 +971,7 @@
 				<td>
 					<textarea type="text" id="cnp_tax_state_rate" name="cnp_tax_state_rate"cols="80" rows="3"><?php echo esc_attr($cnp_tax_state_rate)?></textarea>
 					&nbsp;
-					<p><small><?php _e('Enter the state and tax values. Enter values as ""CountryCode-StateCode-TaxRate" Separated with comma. eg:SS-EC-7,BD-C-9 whcih means South Sudan(SS) - Country, Central Equatoria(EC) has 7% tax - State For more help on country and state codes <a href="http://en.wikipedia.org/wiki/ISO_3166-2" target="_blank">click</a> here', 'pmpro');?></small></p>
+					<p><small><?php _e('Enter the state and tax values. Enter values as "CountryCode-StateCode-TaxRate" Separated with comma. eg:US-VA-7,BD-C-9 which means United States(US) - Country, Virginia(VA) has 7% tax - State For more help on country and state codes <a href="http://en.wikipedia.org/wiki/ISO_3166-2" target="_blank">click</a> here', 'pmpro');?></small></p>
 				</td>
 			</tr>
 			
