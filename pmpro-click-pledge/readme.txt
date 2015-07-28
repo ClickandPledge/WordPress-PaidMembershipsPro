@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors:      Click & Pledge
-Plugin Name:       Paid Memberships Pro Click & Pledge Gateway
+Plugin Name:       Click & Pledge - Paid Memberships Pro
 Plugin URI:        http://manual.clickandpledge.com/WooCommerce.html
 Tags:              Paid Memberships Pro, PaidMembershipsPro, cnp, clickandpledge, payment gateway, payment module, ecommerce, online payments, Click & Pledge, Click&Pledge, Click, Pledge, Salesforce, Payment, Kamran
 Author URI:        http://www.clickandpledge.com

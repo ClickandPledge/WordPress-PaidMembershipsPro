@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Paid Memberships Pro Click & Pledge Gateway
+Plugin Name: Click & Pledge - Paid Memberships Pro
 Plugin URI: http://manual.clickandpledge.com/
 Description: With Click & Pledge, Accept all major credit cards directly on your Paid Memberships Pro website/membership levels with a seamless and secure checkout experience.<a href="http://manual.clickandpledge.com/" target="_blank">Click Here</a> to get a Click & Pledge account.
 Version: 1.0.1
