@@ -1,4 +1,4 @@
 WordPress-PaidMembershipsPro
 =====================
 <strong>Plugin now available</strong> 
-https://wordpress.org/plugins/woocommerce-click-pledge-gateway/
+https://wordpress.org/plugins/click-pledge-paid-memberships-pro/
